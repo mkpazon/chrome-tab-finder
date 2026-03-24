@@ -24,10 +24,10 @@ selected=$(echo "$tabs" | fzf \
   --with-nth=4 \
   --preview-window=hidden \
   --prompt="Tab > " \
-  --header="Enter=focus | Ctrl-X=close tab" \
+  --header="Enter=focus | Ctrl-D=close tab" \
   --height=10 \
   --reverse \
-  --bind "ctrl-x:execute-silent($SCRIPT_DIR/close-tab.sh {1}|||{2})+reload($SCRIPT_DIR/list-tabs.sh)")
+  --bind "ctrl-d:execute-silent($SCRIPT_DIR/close-tab.sh {})+reload($SCRIPT_DIR/format-tabs.sh)")
 
 if [ -n "$selected" ]; then
   w=$(echo "$selected" | awk -F'\\|\\|\\|' '{print $1}')
